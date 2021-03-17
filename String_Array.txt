@@ -1,0 +1,209 @@
+String is a sequence of characters. 
+
+String is immutable(once created cannot be changed.)
+
+String Literalis mutable(It can be changed)
+
+String variables stored in string pool
+String Objects stored in Heap memory
+
+Each String object has it own storage in the heap memory
+
+
+String object is faster than a string literal
+
+
+String variables reducing memory consumption
+
+== is compare the memory locations
+
+String object is faster than a string literal
+
+
+
+
+String str1 = "Hello"; //String Literal
+	
+String strobj = new String("Hello"); //String object
+
+
+******************************************************************
+
+
+String str1 = "Hello";
+	String str2 = "Hello";
+	System.out.println(str1+"------>" +System.identityHashCode(str1));
+	System.out.println(str2+"------>" +System.identityHashCode(str2));
+	
+	
+	String strobj1 = new String("TestLeaf");
+	String strobj2 = new String("TestLeaf");
+	System.out.println(strobj1+"------>" +System.identityHashCode(strobj1));
+	System.out.println(strobj2+"------>" +System.identityHashCode(strobj2));
+
+
+******************************************************
+
+String str1 = "Java programming";
+	String str = "Java";
+	System.out.println(str1.length());
+	System.out.println(str1.toLowerCase());
+	System.out.println(str1.toUpperCase());
+	System.out.println(str.contains(str1));
+	System.out.println(str1.equals(str));
+	System.out.println(str1.equalsIgnoreCase(str));
+
+	char charAt = str.charAt(3); 
+	System.out.println(charAt);
+	//charAt retrive single letter
+	for (int i = 0; i < str1.length(); i++) {
+		System.out.print(str1.charAt(i));
+	}   
+
+	//char array retrive the sequence of characters
+	char[] array = str1.toCharArray();
+	 for (int i = 0; i < array.length; i++) {
+		 System.out.println(array[i]);
+	}
+
+
+	 String[] split = str1.split(" "); 
+	 
+	 for (int i = 0; i < split.length; i++) {
+		 System.out.println(split[i]);
+	}
+
+
+		 
+	 String text = "I'm from Coimbatore";
+	System.out.println( text.replace('m', '@'));
+
+	//regular expression
+	String text1 = "Born in 1995";
+	System.out.println(text1.replaceAll("[^0-9]", ""));
+
+	System.out.println(text1.replaceAll("[0-9]", ""));
+
+********************************************************************************************
+More than one data in a single variable is called as array
+Arrays index are starts with 0
+
+if we does not give any value to some index it'll alocate 0 to that index
+
+
+String[] str = {"Red","Blue","Black","White"}
+	for (int i = 0; i < abc.length; i++) {
+	System.out.println(abc[i]);
+	}
+
+
+	int[] array = new int[5];
+			array[0] = 54;
+			array[1] = 26;
+			array[2] = 62;
+			array[3] = 33;
+			array[4] = 47;
+			
+			Arrays.sort(array);
+
+	//acending sorted
+		
+			for (int i = 0; i < array.length; i++) {
+				System.out.println(i+"-->"+array[i]);
+			}
+
+
+		//reverse order
+				for (int i = array.length-1; i>0; i--) {
+				System.out.println(i+"-->"+array[i]);
+
+
+Arrays
+
+Dis Advantage
+Can store a single type of primitives only
+cannot increase the size at runtime
+Arrays does not have add or remove methods.
+
+Advantage
+Array can store many number of elements at a time.
+We can access any element randomly by using indexes provided by arrays.
+
+
+Array
+
+Store more than one data in a single variable
+
+ ---->Store the same data type
+
+
+Declaration:
+
+
+String[] name = {"Divya", "Balaji", "Naveen", "Bowya", "Hari"};
+
+
+int[] number = new int[5];
+	number[0] = 6;
+
+
+Advantage:
+
+Store many number of values in a single variable 
+Access any element randomly using array indexes.
+Arrays does not have any add or remove methods.
+
+
+Disadvantages:
+
+store only the same data type
+Cannot increase the size during the runtime
+
+
+int a[] = { 1, 8, 3 };
+
+Array copy
+
+we can copy an array like this but it's a wrong way...
+
+
+int arr[] = { 1, 9, 6 };
+	 
+	int arr1[] = new int[arr.length];
+	 
+	arr1 = arr;
+
+for (int i = 0; i < arr1.length; i++) {
+	System.out.println(arr1[i]);
+}
+
+
+if there is any changes in arr, it'll change the arr1 value also,
+
+for (int i = 0; i < arr1.length; i++) {
+	arr[i] = arr[i]+1;
+}
+for (int i = 0; i < arr1.length; i++) {
+	System.out.println(arr1[i]);
+}
+
+
+The proper way of copying array is,
+
+
+int arr[] = { 1, 5, 6 };
+	 
+	int arr1[] = new int[arr.length];
+	 
+
+for (int i = 0; i < arr1.length; i++) {
+	arr1[i] = arr[i];
+	System.out.println(arr1[i]);
+}
+for (int i = 0; i < arr1.length; i++) {
+	arr[i] = arr[i]+1;
+}
+for (int i = 0; i < arr1.length; i++) {
+	System.out.println(arr1[i]);
+}
+}
