@@ -1,0 +1,207 @@
+TestNg:
+-> execution framework
+-> Unit testing framework
+
+TestNG-> TestNextGeneration
+
+<test>
+<classes>
+<class name="retail.tests.Retail_Web_Accounts009" />
+</classes>
+</test>
+-> it is equal to package. It helps to group or module our testcases.
+It contains collection of classes.
+
+<suit>:
+->It's like project. Inside an xml I can have only one xml suit.
+Inside a suit I can have any number of test
+
+<class>
+<class name="retail.tests.Retail_009" />
+-> has an attribute called name, we need to mention, which class we have to run
+
+<parallel>
+-> default value of parallel is "none"
+-> values we can pass in parallel is classes, false, instances, methods, none, tests, true
+
+thread-count = "5"
+->it opens 5 test cases parallelly
+-> What is the maximum thread count we can assign is purlydepends on your system hardware cofiguration(if it is i7 and 8 or 16gb ram, u can give value as 20)
+
+verbose
+
+The default vale of verbose is 1. If the value is 1, u can not get the expection 
+
+Parameterization - TestNG
+
+Static - common for all test cases or common among all the testcases
+Dynamic - Test data (Excel/db)
+
+
+What kind of data is kept in your excel/db? - testdata
+
+
+The common things like @before and after methods in super class
+
+to passing the data in dynamic, We have to declare it in super class 
+the mechanisam is called @dataProvider
+
+* dataProvider annotation help us to supply test data to @Test
+
+Each row is one set of test data
+
+what kind of application is an excel is?   - > window based application
+ 
+Selenium interact with only web based application it can not interact with 
+window based application
+
+Third party open source products to interact with excel 
+
+Apache POI -other kind of office application(stable software, overcome lots of challanges)
+Aspose
+JavaXL - only xl 
+
+
+Apache POI - 
+
+* is the product of a Huge enterprise of 'Apache Maven' 
+
+* Maven is one of its product
+
+POI - Poor Obfuscation Implementation
+
+
+1. GO to the folder and open the file(path/location)
+2. Select the sheet(Sheet name/index)
+3. You need to iterate over the rows - row count
+4. You need col size to iterate over the cells
+5. Go to each cell and read the data
+
+
+invocationcount -  tells how many times TestNG should run a test method
+example:
+
+ @Test(invocationCount=5) 
+    public void test1() throws InterruptedException { 
+        System.out.println("Thread ID: "+Thread.currentThread().getId()); 
+    } 
+
+OutPut:
+
+Thread ID: 1
+Thread ID: 1
+Thread ID: 1
+Thread ID: 1
+Thread ID: 1
+
+Above method ran 5 times, a single thread will be assigned to run the method one by one..
+
+ThreadPoolSize
+
+threadPoolSize tells the TestNG to run the test method through multiple threads(browser windows). Though 
+this attribute is ignored if invocationCount is not specified. 
+
+ @Test(threadPoolSize=3, invocationCount=5) 
+    public void test1() throws InterruptedException { 
+        System.out.println("Thread ID: "+Thread.currentThread().getId()); 
+    } 
+}
+
+Above method ran 5 times, but 3 threads(chrome windows) shared the 5 times of test run…(threads 11, 12 and 13)
+
+
+
+Annotaitons &attributes
+Parameterization(Static @dynamic)
+
+Runner Framework | Based on java rival to JUnit
+
+Cedric Bueast
+
+Test Suite
+Parallel Execution
+Multiple TestData(Static & Dynamic)
+Report Generation
+Excel Integration
+
+Annotaion :
+
+ All the annotations are interfaces and all the attributes are methods
+
+Annotations:
+================
+
+@BeforeSuite: The annotated method will be run before all tests in this suite have run. 
+
+@AfterSuite: The annotated method will be run after all tests in this suite have run. 
+@BeforeTest: The annotated method will be run before any test method belonging to the classes inside the <test> tag is run.
+ 
+@AfterTest: The annotated method will be run after all the test methods belonging to the classes inside the <test> tag have run. 
+
+@BeforeGroups: The list of groups that this configuration method will run before. This method is guaranteed to run shortly before the first test method that belongs to any of these groups is invoked.
+ 
+@AfterGroups: The list of groups that this configuration method will run after. This method is guaranteed to run shortly after the last test method that belongs to any of these groups is invoked.
+ 
+@BeforeClass: The annotated method will be run before the first test method in the current class is invoked. 
+
+@AfterClass: The annotated method will be run after all the test methods in the current class have been run. 
+
+@BeforeMethod: The annotated method will be run before each test method. 
+
+@AfterMethod: The annotated method will be run after each test method.
+
+Attributes:
+alwaysRun ->If set to true, this test method will always be run even if it depends on a method that failed.
+
+dataProvider ->The name of the data provider for this test method.
+
+dataProviderClass ->The class where to look for the data provider. If not 
+specified, the data provider will be looked on the class of the current test method or one of its base classes. If this attribute is specified, the data provider method needs to be static on the specified class.
+
+dependsOnGroups ->The list of groups this method depends on.
+
+dependsOnMethods ->The list of methods this method depends on.
+
+description ->The description for this method.
+
+enabled	->Whether methods on this class/method are enabled.
+
+expectedExceptions ->The list of exceptions that a test method is expected to throw. If no exception or a different than one on this list is thrown, this test will be marked a failure.
+
+groups ->The list of groups this class/method belongs to.
+invocationCount ->The number of times this method should be invoked.
+invocationTimeOut ->The maximum number of milliseconds this test should take for the cumulated time of all the invocationcounts. This attribute will be ignored if invocationCount is not specified.
+
+priority ->The priority for this test method. Lower priorities will be scheduled first.
+
+successPercentage ->The percentage of success expected from this method
+
+singleThreaded ->If set to true, all the methods on this test class are guaranteed to run in the same thread, even if the tests are currently being run with parallel="methods". This attribute can only be used at the class level and it will be ignored if used at the method level. Note: this attribute used to be called sequential (now deprecated).
+
+timeOut ->The maximum number of milliseconds this test should take.
+
+threadPoolSize ->The size of the thread pool for this method. The method will be invoked from multiple threads as specified by invocationCount. 
+Note: this attribute is ignored if invocationCount is not specified.
+
+Difference bitween parameters and dataproviders?
+
+Parameters : The Parameters is used, when you need to pass a static data for your test cases. which remains unchanged throughout the execution of test cases. Which is purely implemented in XML file. 
+Ex: <parameter name="locator" value=""></parameter>
+
+Data Provider: The Data Provider is used, when you need to pass a Dynamic data for your test cases. which will changes for each iteration  of a test cases.
+Ex: @DataProvider(name="value")
+
+<packages>
+=================
+
+<suite name="Suite1" verbose="1">
+    <test name="all-tests">
+        <packages>
+            <package name="io.devqa.tests.ui"/>
+        </packages>
+    </test>
+</suite>
+
+<package name=".*" />
+there is a “.” before the * in the package name, which indicates all package names.
+

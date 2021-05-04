@@ -1,0 +1,107 @@
+Inheritance:
+
+Every object has it's own memory space.
+We can call one class from another class by inheritance.
+Advantage of inheritance is to avoid the wastage of memeory
+Using child class object we can access the base classes
+We can access one class property from another class without creating object
+Class properties can be reused
+
+
+Type:
+
+single inheritance - only one class extends from parent class
+multi level inheritance - more than one level of inheritance
+Multiple Inheritance - it is not allowed in java we can overcome this in interface
+			child class extends more than one parent class
+
+
+Access Specifiers:
+
+[With in same package all public, protected and default will act as same. can access only with in the packeage]
+
+Public - Global level Access(inside Package(extends, objects)+ outside package(import the package and class)
+Protected - Inside Package(extends, objects) , Outside the package we can not access
+Default - with out any keyword before return type of method name
+	  can acces with in the package(using extends or object) 
+private -  can access only with in the class
+
+variable :
+
+variable can be accessed in same package.
+different package variables should be created as public to access
+
+Method Overloading :
+	Method overloading is performed within class.
+	Method overloading is the example of compile time polymorphism
+	In method overloading, more than one method shares the same method name with different signature in the class.
+
+
+Super:
+super can be used to refer immediate parent class instance variable.
+super can be used to invoke immediate parent class method.
+super() can be used to invoke immediate parent class constructor.
+	
+class Animal{  
+Animal(){System.out.println("animal is created");}  
+}  
+class Dog extends Animal{  
+Dog(){  
+super();  
+System.out.println("dog is created");  
+}  
+}  
+class TestSuper3{  
+public static void main(String args[]){  
+Dog d=new Dog();  
+}}  
+
+this keyword :
+
+this can be used to refer current class instance variable.
+this can be used to invoke current class method (implicitly)
+this() can be used to invoke current class constructor.
+this can be passed as an argument in the method call.
+this can be passed as argument in the constructor call.
+this can be used to return the current class instance from the method.
+
+class Student{  
+int rollno;  
+String name;  
+float fee;  
+Student(int rollno,String name,float fee){  
+this.rollno=rollno;  
+this.name=name;  
+this.fee=fee;  
+}  
+void display(){System.out.println(rollno+" "+name+" "+fee);}  
+}  
+  
+class TestThis2{  
+public static void main(String args[]){  
+Student s1=new Student(111,"ankit",5000f);  
+Student s2=new Student(112,"sumit",6000f);  
+s1.display();  
+s2.display();  
+}}  
+
+
+Constructor :
+
+Name must be the same as its class name
+A Constructor must have no return type, and synchronized
+
+Default Constructor:
+
+A constructor is called "Default Constructor" when it doesn't have any parameter.
+The default constructor is used to provide the default values to the object like 0, null, etc., depending on the type.
+
+Constructor Overloading 
+
+Constructor overloading in Java is a technique of having more than one constructor with 
+different parameter lists.
+
+
+
+
+

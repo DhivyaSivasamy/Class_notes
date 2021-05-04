@@ -1,0 +1,27 @@
+class:
+	Collection of objects
+Objects: 
+	Real time entity.
+	Combination of state and behavior
+
+A=B, B=C, A=? the answer is, A=C
+
+State of an object -> The state or attributes are the built in characteristics of an object. For example, a T.V has the size, colour, model etc.
+
+Behaviour of the object - The behavior of an object are its predefined functions. For example, a T.V. can show picture , change channels, tune for a channel etc. 
+
+Finally, Class is an collection of state and behavior.
+
+
+If there is a class called Indian, we are all represent the class but the spoken language of each of us is different.
+
+If u open a more than one tab in chrome, each tab is an object.
+But all the tabs represents Chrome. Object is an representation of a class.
+
+If there are 50 students in a class. And a class teacher wants to pass a message to them. The class teacher does not need to pass the message to each of them separately instead of that, he can ask the class rep to pass the message. So teacher can represent the total class member with a single rep
+
+Object is an instance of a class. Instance means, representation
+https://www.youtube.com/watch?v=4z5cOr2wkT4
+
+
+

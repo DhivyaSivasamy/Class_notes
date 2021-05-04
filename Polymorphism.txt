@@ -1,0 +1,25 @@
+Polymorphism :
+
+	Poly means many and morph means change (or ‘form’). 
+
+Man is only one, but he takes multiple roles like —he is a dad to his child, he is an employee,
+a salesperson and many more. This is known as Polymorphism.
+
+Consider a cell phone where you save your Contacts. Suppose a person has two contact numbers. For the 
+ease of accessibility, your cellphone provides you the functionality where you can save two numbers
+under the same name.
+
+Similarly, in Java, an object is only one but it can take multiple forms depending on the context of 
+the program. Suppose you want to write a function to save two contact numbers of the same person, you
+can create it like — void createContact(String name, int number1, int number2).
+
+Now, it’s not necessary that everyone in your contact list will have two contact numbers. 
+Few of them might be having only a single contact number. In such situations, instead of creating 
+another method with a different name to save one number for a contact, what you can do is, create 
+another method with the same name i.e. createContact(). But, instead of taking two contact numbers as 
+parameters, take only one contact number as a parameter i.e. void createContact(String name, int number1).
+
+createContact() method has two different definitions. Here, which definition is to be executed depends
+upon the number of parameters being passed. If one parameter is passed, then only a single contact number
+is saved under the contact. But, if two contact numbers are passed to this method at the same time, then
+ both will be saved under the same contact. This is also known as Method Overloading.

@@ -1,0 +1,29 @@
+Test Framework is software, which will enable us to run our tests as needed. There are two most common frameworks:
+
+JUnit
+TestNG
+
+Both the framework are used for unit testing. 
+TestNG is similar to JUnit with few more additional functionality. 
+TestNG provides parallel execution, grouping, parameterization and dependency which are not available in JUnit. 
+It also provides reporting in HTML & XML format.
+
+Our choice of test automation framework is TestNG.
+
+-->Both @BeforeClass and @BeforeTest annotations are preferred to assign the Excel file name
+--> Page Object Model is a Design Pattern framework
+-->Page Object Model can be integrated with Testng, Apache POI and cucumber
+-->In the Page Object Model, each method should return the appropriate class
+-->Both XSSFWorkbook and HSSFWorkbook class will you use to access the excel file
+-->At test case level by adding any annotation that runs before @DataProvider is the appropriate place to assign the Test Data Filename
+
+Multi lingual Application--> will be having locators in the properties files
+===========================
+-Multiple properties
+-keys will be same
+-values will be different
+
+indices= {0} ---> It'll restric to fetch only one set of data from excel. Should be given in @dataprovider annnotation
+
+
+

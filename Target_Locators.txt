@@ -1,0 +1,199 @@
+Alert
+
+3 types of alert,
+Simple alert---> will provide some information to the user
+Confirmation  Alert---> confirmation of some tasks. For Example: Do you wish to continue a particular task? Yes or No? 
+Prompt Alert---> will require some information from the user
+
+Methods designed in Alert interface:
+ 1) accept 	- Positive response
+ 2) dismiss 	- Negative response
+ 3) sendKeys 	- Enter text (but you will not see this action)
+ 4) getText	- Get the text on the alert (do this before accept/dismiss)
+
+https://recipes.timesofindia.com/ --->sweet alert
+https://javascript.info/alert-prompt-confirm--->Alert Example
+
+
+
+
+1) Alert is an Interface, implemented by RemoteAlert
+    and RemoteAlert is called by RemoteTargetLocator class
+ 2) RemoteTargetLocator is inner class inside RemoteWebDriver class
+ 3) Alert is modal dialog and cannot be inspected (Javascript)
+ 4) Alert does not appear more than once at a time 
+ 5) It is modal, hence you need to handle it.
+ 6) You cannot take snapshot of the alert (you will know why later?)
+ 7) If it is inspectable, it is not an alert
+
+ System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+ ChromeDriver driver = new ChromeDriver();
+ driver.get("http://leafground.com/pages/Alert.html");
+ driver.findElementByXPath("//button[.='Prompt Box']").click();
+ driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		Alert alert = driver.switchTo().alert();
+		alert.sendKeys("abc");
+		String text = alert.getText();
+		System.out.println(text);
+		alert.accept();
+
+		String title = driver.getTitle();
+		System.out.println(title);
+ 
+ Exceptions:
+ 1) NoAlertPresentException - You are expecting an alert, 
+ so trying to switch 
+ but there is no alert present
+ 2) UnhandledAlertException - You did not expect an alert,
+ so did not switch
+ but alert appeared unexpectedly
+	
+
+
+Frames:
+
+iFrame is a HTML document embedded inside an HTML document
+
+Purpose of frame:
+The  Frame is often used to insert content from another source, such as an advertisement,
+into a Web page. 
+
+The <iframe> tag specifies an inline frame.
+
+To Switch between iFrames we have to use  switchTo().frame command. 
+We can use the switchTo().frame() in three ways:
+
+switchTo.frame(int frameNumber)---> Pass the frame index and driver will switch to that frame.
+switchTo.frame(string frameNameOrId)---> Pass the frame element Name or ID and driver will switch to that frame.
+switchTo.frame(WebElement frameElement)---> Pass the frame web element and driver will switch to that frame.
+
+ 1) frame is a method inside RemoteTargetLocator
+ 2) RemoteTargetLocator is inner class inside RemoteWebDriver class
+ 3) Frame is a section inside the html (organized)
+ 4) You cannot find element inside the frame directly
+ 5) So, you need to go inside frame to see elements of frame
+ 6) If you want look up for elements outside the frame, you need to switch out
+ 7) You can have any number of frames inside an application!
+ 8) You can also have inner (child) frame(s) inside a frame.
+ 
+ Methods designed for switching to frame:
+ 1) frame(index) 	- Integer index starts at 0
+ 2) frame(nameorid)	- String (either name or id attribute)
+ 3) frame(WebElement)	- WebElement (element found by findElement method)
+ 
+ Exceptions while switch frame
+ 1) NoSuchFrameException 	- When no frame (index/name/id) found
+ 2) NoSuchElementException 	- When using WebElement to switch
+
+
+public class NestedFrameCount {
+
+	static ChromeDriver driver;
+
+	public static int countInnerFrame(int index) {
+		driver.switchTo().frame(index);
+		int size = driver.findElementsByTagName("iframe").size();
+		System.out.println(size);
+		System.out.println("**********************");
+		return size;
+	}
+
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("http://leafground.com/pages/frame.html");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+
+		int size = driver.findElementsByTagName("iframe").size();
+
+		int count = size;
+		
+		for (int i = 0; i < size; i++) {
+			driver.switchTo().defaultContent();
+			int countInnerFrame = countInnerFrame(i);
+			System.out.println(countInnerFrame);
+			count = count + countInnerFrame;
+		}
+		System.out.println("total number of frames: " + count);
+	}
+}
+
+
+windows:
+
+ Notes about Window : 
+ 
+ 1) window is a method inside RemoteTargetLocator
+ 2) RemoteTargetLocator is inner class inside RemoteWebDriver class
+ 3) window can be tab / new window itself
+ 4) You cannot switch to a new window directly
+ 5) At a time, the control will be there only in a window
+ 6) If you want to switch another tab/window, you need to code to switch
+ 
+ Methods designed for switching to window:
+ 1) window(windowhandle) 		- String (WindowHandle)
+ 
+ Exceptions when switch window
+ 1) NoSuchWindowException 	- When the window handle does not exist
+
+
+System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leaftaps.com/opentaps/control/login");
+		driver.manage().window().maximize();
+		
+        //Enter UserName and Password Using Id Locator
+		WebElement eleUsername = driver.findElementById("username");
+		eleUsername.sendKeys("demosalesmanager");
+		WebElement elePassword = driver.findElementById("password");
+		elePassword.sendKeys("crmsfa");
+		//Click on Login Button using Class Locator
+		driver.findElementByClassName("decorativeSubmit").click();
+		
+        //Click on CRM/SFA Link
+		driver.findElementByLinkText("CRM/SFA").click();
+
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.findElementByLinkText("Leads").click();
+		driver.findElementByLinkText("Merge Leads").click();
+		driver.findElementByXPath("//img[@alt='Lookup']").click();
+		Set<String> allWindows = driver.getWindowHandles();
+		List<String> allhandles = new ArrayList<String>(allWindows);
+		driver.switchTo().window(allhandles.get(1));
+		driver.findElementByXPath("//input[@name='firstName']").sendKeys("gopi");
+		driver.findElementByXPath("//button[text()='Find Leads']").click();
+		Thread.sleep(1000);
+		String leadID = driver.findElementByXPath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a").getText();
+		driver.findElementByXPath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a").click();
+		driver.switchTo().window(allhandles.get(0));
+
+		driver.findElementByXPath("(//img[@alt='Lookup'])[2]").click();
+		Set<String> allWindows2 = driver.getWindowHandles();
+		List<String> allhandles2 = new ArrayList<String>(allWindows2);
+		driver.switchTo().window(allhandles2.get(1));
+		driver.findElementByXPath("//input[@name='firstName']").sendKeys("sangee");
+		driver.findElementByXPath("//button[text()='Find Leads']").click();
+		Thread.sleep(1000);
+		driver.findElementByXPath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a").click();
+		driver.switchTo().window(allhandles2.get(0));
+		driver.findElementByXPath("//a[text()='Merge']").click();
+		driver.switchTo().alert().accept();
+
+		driver.findElementByLinkText("Find Leads").click();
+		driver.findElementByXPath("//input[@name='id']").sendKeys(leadID);
+		driver.findElementByXPath("//button[text()='Find Leads']").click();
+		String text = driver.findElementByClassName("x-paging-info").getText();
+		if (text.equals("No records to display")) {
+			System.out.println("Text matched");
+		} else {
+			System.out.println("Text not matched");
+		}
+
+	}
+}
+
+ 

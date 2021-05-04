@@ -1,0 +1,157 @@
+If I want to store multiple element in a single variable,
+I can go with array  
+
+String[] name = "Divya","Prabha","Balaji","Naveen","Sam";
+
+If I want to add two more names, it is not possible in array.
+Because, array size is fixed.
+
+To overcome this kind of issues we Move to List which is alternate to array.
+
+we can say List as a Dynamic array
+It do not have any limitations
+does not requires the size.. We can add any number of items 
+
+Why we have to learn list here,
+If i want to collect more than one webelement from a webpage and i'm not sure about the size, 
+we can go with list
+
+By default, selenium will return more than one webelement as a list
+
+
+List - Interface
+It has number of implimentation classes
+but what we are going to learn today is,
+1.ArrayList
+ 
+Behaviour of list
+
+* List maintains the insertion order
+* List allows duplicate values
+* List allows null values
+
+
+We should declare a type of list data as Generic.
+
+We should not use primitive data types here
+
+We have to declare an list only with the wrapper class of the primitive data types
+
+ArrayList<int> MyStrings =new ArrayList<int>();
+
+ 
+
+List<String> Animal =new ArrayList<String>();
+		Animal.add("Dog");
+		Animal.add(1, "Cat");
+		Animal.add("Cow");
+		Animal.add("Goat");
+		Animal.add(null);
+		list.add(2, "Lion");
+
+* Size of the List
+int size = Animal.size();
+
+we can not retrive a item directly from a list
+we have a method called get retrive a value.
+
+System.out.println(Animal.get(3));
+
+
+* to retrive all the values form the list based on the index we have to use for loop
+
+for (int i = 0; i < size; i++) 
+{
+System.out.println(Animal.get(i));
+}
+
+* to retrive all the values form the list based on the Value we have to use foreach loop
+the foreach loop can not traverse bottom to top
+
+for(DataType eachentity:List/Set/array)
+
+for (String string : Animal) {
+System.out.println(string);
+}
+ * Remove the value from the list
+we can remove based on the object as well as index 
+
+Animal.remove("Cow");
+Animal.remove(2);
+
+*Update the value from the list
+Animal.set(1, "Cat");
+
+
+* Clear is a method which helps you to clear the list
+.clear();
+
+*To check whether the list is Empty or not,
+isEmpty()
+
+*To sorting the list
+Collections.sort(Animal);
+
+The maximum Value
+Collections.max(Animal);
+
+To reverse in Descending Order.
+Collections.reverse(Animal);
+
+*Two types of copyting list to another list
+List<String> pet = new ArrayList<String>();
+pet.addAll(Animal);0
+
+Another way is,
+List<String> pet = new ArrayList<String>(Animal);
+
+
+Set Interface
+
+1. Set may or may maintain the insertion order - Implementing class
+ Set maintain the order based on the implementing class
+2. Set will not allow duplicates(If you want to maintain a unique items, u can go with set)   
+
+
+1.HashSet - Random order(Based on the hashing algorithm) 
+2.LinkedHashSet - Insertion order
+3.TreeSet - (ASCII)
+
+
+* Set does not have get method
+  Because, each of the implimentation classe maintains the different oder
+
+
+
+	Set<String> name = new LinkedHashSet<String>();
+	name.add("Sam");
+	name.add("Hari");
+	name.add("Balaji");
+	name.add("Naveen");
+	name.add("Divya");
+	name.add("Divya");
+	Set<String>Tname = new TreeSet<String>(name);
+	Set<String>Lname = new HashSet<String>(name);
+	
+	System.out.println(name);
+	System.out.println(Tname);
+	System.out.println(Lname);
+We can use for each to get the items from the list
+
+for (String string : name) {
+		System.out.println(string);
+	}
+	
+
+we can convert it into List
+	List<String> list = new ArrayList(name);  
+
+	List<String> list = new ArrayList();
+	list.addAll(name);
+
+
+
+
+
+
+

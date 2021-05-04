@@ -1,0 +1,49 @@
+Encapulation:
+
+Another form of encapsulation is, Data Hiding
+
+
+Abstract class in Java:
+
+ when we are driving a car, we are only concerned about driving the car like start/stop the car, accelerate/ break, etc. We are not concerned about how the actual start/stop mechanism or accelerate/brake process works internally. We are just not interested in those details.
+
+If there is an abstract method in a class, that class must be abstract.
+
+A class which is declared as abstract is known as an abstract class. 
+It can have abstract and non-abstract methods.
+It needs to be extended and its method implemented. 
+We can not create object for this class. (to access it, it must be inherited from another class).
+
+Abstract method: 
+
+can only be used in an abstract class, and it does not have a body. (no curly braces)
+The body is provided by the subclass (inherited from).
+
+Points to Remember:
+
+An abstract class must be declared with an abstract keyword.
+It can have abstract and non-abstract methods.
+It cannot be instantiated.
+It can have constructors and static methods also.
+It can have final methods which will force the subclass not to change the body of the method.
+
+
+abstract class bank {
+
+	abstract int getRateOfInterest();    
+	}    
+	class SBI extends bank{    
+	int getRateOfInterest(){return 7;}    
+	}    
+	class PNB extends bank{    
+	int getRateOfInterest(){return 8;}    
+	}    
+	    
+	class TestBank{    
+	public static void main(String args[]){    
+	bank b;  
+	b=new SBI();  
+	System.out.println("Rate of Interest is: "+b.getRateOfInterest()+" %");    
+	b=new PNB();  
+	System.out.println("Rate of Interest is: "+b.getRateOfInterest()+" %");    
+	}}   

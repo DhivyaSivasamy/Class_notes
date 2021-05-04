@@ -1,0 +1,170 @@
+1) Find the duplicates in a String (case sensitive)
+   I/P: java 
+   O/P: a - 2
+
+2) Find all substrings of a String in java
+   I/P: abbc
+   O/P: a
+	ab
+	abb
+	abbc
+	b
+	bb
+	bbc
+	b
+	bc
+	c
+
+1) Java program to find number of words in String?
+
+I/P: Welcome to Chennai
+O/P: 3 Words
+
+2) Write a program to print fibonacci series for the first 20 elements?
+
+Fibonacci Series: Sum of the previous two numbers
+
+O/P: 1 1 2 3 5 8 12...
+
+1) Change UpperCase To LowerCase And Lowercase To Uppercase Of All The Characters In The String Without Using Built-In Java
+
+I/P: Chennai City
+O/P: cHENNAI cITY
+
+2) Find out the largest value in an array without using Java Collection
+
+I/P: {173,29,391,41}
+O/P: 173
+
+1) Given String str, remove the vowels 'a', 'e', 'i', 'o', 'u' from it, and return the new String.
+
+I/P: "youwillwinthis"
+O/P: "ywllwnths"
+
+I/P: "aeiou"
+O/P: ""
+
+2) Find the ASCII value of a character
+
+
+1) Given 2 Strings s & t, write a method to determine if t is an anagram of s
+
+I/P: s = "anagram", t = "nagaram"
+O/P: true
+
+I/P: s = "rat", t = "car"
+O/P: false
+
+Note: You may assume that the String contains only lowercase alphabets
+
+2) Given a String, find all the substring palindrome
+
+I/P: str = "google"
+O/P: e l g o oo goog
+
+Note: Palindrome - defined as a word or a phrase or a character sequence that reads the same backwards
+
+
+1) In an unsorted int array find the length of the longest consecutive element sequence
+
+I/P: {100, 4, 200, 3, 1, 2}
+
+O/P: 4
+
+2) Arrange the number of elements in an integer array to form a greatest number
+Note: If the result is a bigger number (that is, if turns out to be a long) then 
+convert it into a String
+
+I/P: {1000,2000,3000}
+
+O/P: "300020001000"
+
+1) Find the largest and smallest word in a string
+
+I/P: New York City is bigger than Pennsylvania
+
+2) Sort an array without using any in-built methods
+
+I/P: 90, 23, 5, 109, 12, 22, 67, 34
+
+1) The square root of a number without inbuilt methods
+
+2) Add the digits that are right side to the decimal point - 1234.5678
+
+
+1.Write a Java program to print the following grid. Go to the editor
+
+Expected Output :
+
+- - - - - - - - - -                                                                                           
+- - - - - - - - - -                                                                                           
+- - - - - - - - - -                                                                                           
+- - - - - - - - - -                                                                                           
+- - - - - - - - - -                                                                                           
+- - - - - - - - - -                                                                                           
+- - - - - - - - - -                                                                                           
+- - - - - - - - - -                                                                                           
+- - - - - - - - - -                                                                                           
+- - - - - - - - - -  
+
+
+2. Write a Java program to remove a specific element from an array
+
+
+1. Write A Java Program to find Average of all Array Elements
+Input array elements: 65, 45, 25, 65, 84, 74, 96, 74, 15, 36
+    Output:
+    SUM of all elements: 579
+    Average of all elements: 57.9
+
+2.Write a Java program to find the index of an array element.
+
+
+1) Find a given year is a leap year or not
+
+2) Reverse a number (interger variable - should not be converted into a String)
+
+
+1. Write a Java Program to Round a Double to 2 Decimal places
+Input: 14.3712377        OutPut: 14.37
+15.4712377                                 15.471
+12.388654                                   12.39
+12.388654                                   12.389
+
+2. Write a Java Program To Subtract N Hours from current date Time.
+Input :Your Current Laptop Time 
+
+OutPut: Subtract 5 hours from current time
+
+
+1. Write a Java Program To print Numbers in Below pattern:
+
+              1
+             2 3
+            4 5 6
+           7 8 9 10
+         11 12 13 14 15
+
+
+2. Write a java program to print pyramid of stars using for loop in below format
+
+*
+**
+*
+**
+*
+**
+*
+**
+*
+**
+**
+*
+**
+*
+**
+*
+**
+*
+**
+*

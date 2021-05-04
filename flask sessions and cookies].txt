@@ -1,0 +1,30 @@
+Sessions
+
+* The web is stateless, we need some form of storage to remember if a user is logged in. 
+* Flask provides access to a session object which is available and persists while our server is running.
+* Flask's sessions are actually cookie based. This means that when we use session to store data, 
+  that data will be signed with a secret key, but also sent back to the browser in a cookie.
+* Anybody can read the data in this cookie, but the server will know if the data has been tampered with. But because the data can be read by the browser, 
+  you should never store data that needs to be kept secret in with Flask's built-in session
+* In the flask, a session object is used to track the session data which is a dictionary object that contains a key-value pair of the session variables and their associated values.
+
+
+	Session[<variable-name>] = <value>  
+
+* To remove a session variable, use the pop() method on the session object and mention the variable 
+
+
+	session.pop(<variable-name>, none)  
+
+
+"https://www.rithmschool.com/courses/intermediate-flask/cookies-sessions-flask"
+
+1. If you stop the server and restart it, the session persists.
+   But if you quit the browser and restart it, the session is destroyed. 
+   In other words, if you have a counter with some positive value, restart the browser, and then refresh the counter, you'll be told that no counter is set.
+
+2. If you try to tamper with the cookie, the session should break. 
+   In Chrome, you can try this out in the application tab. 
+   Go to the "Cookies" section under "Storage", and then tamper with the value for the session cookie.
+   If you have a counter going, manipulate the cookie, and then refresh the page, you should see that the counter is reset. 
+   This is because the server uses the secret key to verify that the cookie has not been tampered with!

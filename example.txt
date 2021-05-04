@@ -1,0 +1,64 @@
+Array
+
+Store more than one data in a single variable
+
+ ---->Store the same data type
+
+
+Declaration:
+
+
+String[] name = {"Divya", "Balaji", "Naveen", "Bowya", "Hari"};
+
+
+int[] number = new int[5];
+	number[0] = 6;
+
+
+Advantage:
+
+Store many number of values in a single variable 
+Access any element randomly using array indexes.
+Arrays does not have any add or remove methods.
+
+
+Disadvantages:
+
+store only the same data type
+Cannot increase the size during the runtime
+
+
+
+String:
+
+String is a sequence of characters.
+
+
+String str = "Testleaf"; //String literal
+String strobj = "Testleaf";  //String object
+
+
+String object is immutable
+String object is stored in Heap memory
+String object has its own memory
+String object is faster than string variable
+
+String variable is stored in String pool
+String variable will reduce the memory consumption
+
+String methods:
+
+Length
+lowerCase
+upperCase
+contains
+equals - values
+== - location
+equalsIgnoreCase
+charAt
+toCharArray
+split
+replace
+replaceAll
+
+
